@@ -29,7 +29,7 @@ flutter:
     platforms:
       android:
         package: com.bluegriot.flutter_zebra_rfid
-#         pluginClass: FlutterZebraRfidPlugin
+        pluginClass: FlutterZebraRfidPlugin
       ios:
         pluginClass: FlutterZebraRfidPlugin
   # To add assets to your plugin package, add an assets section, like this:
