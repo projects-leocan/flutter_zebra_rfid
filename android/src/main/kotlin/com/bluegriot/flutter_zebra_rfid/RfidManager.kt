@@ -1,3 +1,4 @@
+/*
 package com.bluegriot.flutter_zebra_rfid
 
 import android.R
@@ -663,3 +664,4 @@ class RfidManager(private var channel: MethodChannel, private var context: Conte
         }
     }
 }
+*/
