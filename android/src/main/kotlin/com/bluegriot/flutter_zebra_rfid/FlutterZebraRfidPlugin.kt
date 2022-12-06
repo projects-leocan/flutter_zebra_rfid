@@ -38,7 +38,7 @@ class FlutterZebraRfidPlugin: FlutterPlugin, MethodCallHandler {
     private lateinit var channel : MethodChannel
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "zebra_ios")
+    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_zebra_rfid")
     channel.setMethodCallHandler(this)
   }
 
