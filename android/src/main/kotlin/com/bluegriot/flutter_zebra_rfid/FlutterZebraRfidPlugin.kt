@@ -14,44 +14,21 @@ class FlutterZebraRfidPlugin: FlutterPlugin, MethodCallHandler {
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
-  //private lateinit var channel : MethodChannel
-  //private lateinit var rfidManager : RfidManager
-
-  //override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    //channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_zebra_rfid")
-    //channel.setMethodCallHandler(this)
-    //rfidManager = RfidManager(channel, flutterPluginBinding.applicationContext)
-  //}
-
-  
-  
-  //override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
-//     channel.setMethodCallHandler(null)
-//   }
-  
-  
-
-//   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: MethodChannel.Result) {
-//     rfidManager.onMethodCall(call, result)
-//   }
-  
-    private lateinit var channel : MethodChannel
+  private lateinit var channel : MethodChannel
+  private lateinit var rfidManager : RfidManager
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_zebra_rfid")
     channel.setMethodCallHandler(this)
-  }
-
-  override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-    if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
-    } else {
-      result.notImplemented()
-    }
+    rfidManager = RfidManager(channel, flutterPluginBinding.applicationContext)
   }
 
   override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
+  }
+
+  override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: MethodChannel.Result) {
+    rfidManager.onMethodCall(call, result)
   }
 
 }
