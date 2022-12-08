@@ -44,4 +44,8 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
     implementation (name:"API3_LIB-release-2.0.1.34", ext:"aar")
+    implementation("com.google.guava:guava:30.1.1-jre")
+}
+configurations.implementation {
+   exclude(group = "com.bluegriot.flutter_zebra_rfid", module = "API3_LIB-release-2.0.1.34")
 }
